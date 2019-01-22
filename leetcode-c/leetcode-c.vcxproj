@@ -122,6 +122,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list.c" />
+    <ClCompile Include="Q1.c" />
+    <ClCompile Include="Q2.c" />
     <ClCompile Include="str.c" />
     <ClCompile Include="test.c" />
   </ItemGroup>
