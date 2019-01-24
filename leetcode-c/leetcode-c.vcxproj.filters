@@ -47,5 +47,8 @@
     <ClCompile Include="Qtemp.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Q4.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

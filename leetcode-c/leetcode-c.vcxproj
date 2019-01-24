@@ -125,6 +125,7 @@
     <ClCompile Include="Q1.c" />
     <ClCompile Include="Q2.c" />
     <ClCompile Include="Q3.c" />
+    <ClCompile Include="Q4.c" />
     <ClCompile Include="Qtemp.c" />
     <ClCompile Include="str.c" />
     <ClCompile Include="test.c" />
