@@ -24,6 +24,9 @@
     <ClInclude Include="include\str.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Q6.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list.c">
@@ -51,6 +54,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Q5.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Q6.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
