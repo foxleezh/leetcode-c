@@ -71,5 +71,8 @@
     <ClCompile Include="Q11.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Q12.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
