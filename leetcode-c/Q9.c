@@ -63,7 +63,6 @@ bool isPalindrome(int x) {
 }
 
 void solution9() {
-	ALog("%d",true);
 	ALog("%d", isPalindrome(100));
 	ALog("%d", isPalindrome(10));
 	ALog("%d", isPalindrome(1));
