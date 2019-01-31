@@ -66,6 +66,11 @@ void merge_sort(int arr[], unsigned int first, unsigned int last) {
 	return;
 }
 
+int cmpfunc(const void * a, const void * b)
+{
+	return (*(int*)a - *(int*)b);
+}
+
 /**
  * 解题思路：这题可以简化为求两数之和，我们取一个数然后变为它的相反数，如果有另外两个数之和等于这个相反数，那么这三个数之和就为0
  * <p>
@@ -82,7 +87,8 @@ int** threeSum(int* nums, int numsSize, int* returnSize) {
 		return malloc(sizeof(int*));
 	}
 	int** res = malloc(sizeof(int*)*(numsSize*(numsSize - 1)*(numsSize - 2) / 6));
-	merge_sort(nums, 0, numsSize - 1);
+	//merge_sort(nums, 0, numsSize - 1); //归并排序
+	qsort(nums, numsSize, sizeof(int), cmpfunc);
 	for (int i = 0; i < numsSize; i++) {
 		//跳过大于0的开始，因为三个正数相加不可能等于0
 		if (nums[i] > 0) {
