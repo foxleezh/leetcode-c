@@ -119,7 +119,6 @@
     <ClInclude Include="include\env.h" />
     <ClInclude Include="include\list.h" />
     <ClInclude Include="include\str.h" />
-    <ClInclude Include="Q17.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list.c" />

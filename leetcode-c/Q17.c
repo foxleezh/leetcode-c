@@ -22,14 +22,13 @@ static char* Number[] = { "","","abc","def"
 		,"pqrs" ,"tuv" ,"wxyz" };
 
 static char** t;
-static char* tt;
 
 
 /**
  * 解题思路：看到这题我们首先可能会想到直接遍历就行，但写的过程会发现每次遍历次数不一样，这就只能用递归了
  *
  */
-static char** letter(char* digits, int* returnSize) {
+static char** letter(char* digits, int* returnSize,char* tt) {
 	if (digits[0] == 0)
 	{
 		if (tt[0]) {
@@ -49,7 +48,7 @@ static char** letter(char* digits, int* returnSize) {
 		memcpy(ts, tt, len + 1);
 		tt[len]=Number[digits[0] - '0'][i];
 		tt[len+1]=0;
-		letter(digits+1, returnSize);
+		letter(digits+1, returnSize,tt);
 		//递归完成后恢复
 		memcpy(tt, ts, len + 1);
 		free(ts);
@@ -66,9 +65,9 @@ static char** letterCombinations(char* digits, int* returnSize) {
 		size *= 4;
 	}
 	t = malloc(sizeof(char*)*size);
-	tt = malloc(sizeof(char)*len + 1);
+	char* tt = malloc(sizeof(char)*len + 1);
 	tt[0] = 0;
-	letter(digits, returnSize);
+	letter(digits, returnSize,tt);
 	free(tt);
 	return t;
 }
