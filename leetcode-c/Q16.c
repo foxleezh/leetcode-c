@@ -1,11 +1,11 @@
 #include "include/env.h"
 
 
-int cmpfun(int a,int b) {
+int cmpfun(const void* a, const void* b) {
 	return *(int*)a - *(int*)b;
 }
 
-/**
+/*
  *
  * 给定一个包括 n 个整数的数组 nums 和 一个目标值 target。找出 nums 中的三个整数，使得它们的和与 target 最接近。返回这三个数的和。假定每组输入只存在唯一答案。
  *
@@ -16,6 +16,7 @@ int cmpfun(int a,int b) {
  * @author foxleezh
  * @date 2019-01-31.
  */
+
 int threeSumClosest(int* nums, int numsSize, int target) {
 	qsort(nums,numsSize,sizeof(int),cmpfun);
 	int res = nums[0] + nums[1] + nums[2];
