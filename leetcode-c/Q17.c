@@ -28,7 +28,8 @@ static char** t;
  * 解题思路：看到这题我们首先可能会想到直接遍历就行，但写的过程会发现每次遍历次数不一样，这就只能用递归了
  *
  */
-static char** letter(char* digits, int* returnSize,char* tt) {
+static void letter(char* digits, int* returnSize,char* tt) {
+	//当digits为空时，表示单次递归结束
 	if (digits[0] == 0)
 	{
 		if (tt[0]) {
@@ -36,7 +37,7 @@ static char** letter(char* digits, int* returnSize,char* tt) {
 			memcpy(temp,tt,strlen(tt)+1);
 			t[(*returnSize)++] = temp;
 		}
-		return t;
+		return;
 	}
 	size_t len = strlen(Number[digits[0] - '0']);
 	for (int i = 0; i < len; i++)
@@ -53,7 +54,6 @@ static char** letter(char* digits, int* returnSize,char* tt) {
 		memcpy(tt, ts, len + 1);
 		free(ts);
 	}
-	return t;
 }
 
 static char** letterCombinations(char* digits, int* returnSize) {
