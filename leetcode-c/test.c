@@ -1,10 +1,10 @@
 #include "include/env.h"
 
-extern void solution20(void);
+extern void solution21(void);
 
 int main() {
 	//_CrtSetBreakAlloc(79);
-	solution20();
+	solution21();
 	_CrtDumpMemoryLeaks();
 	int i = 0;
 	scanf("%d",&i);
