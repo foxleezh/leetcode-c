@@ -95,5 +95,8 @@
     <ClCompile Include="Q19.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Q20.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
