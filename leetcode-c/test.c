@@ -1,10 +1,14 @@
 #include "include/env.h"
 
-extern void solution21(void);
+/*
+ * 要测试请把solution后面的数字改为对应的题目
+ */
+
+extern void solution22(void);
 
 int main() {
-	//_CrtSetBreakAlloc(79);
-	solution21();
+	//_CrtSetBreakAlloc(76);
+	solution22();
 	_CrtDumpMemoryLeaks();
 	int i = 0;
 	scanf("%d",&i);

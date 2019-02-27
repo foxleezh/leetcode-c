@@ -27,13 +27,13 @@ typedef struct ArrayList_Class
 {
 	int **arrBase;
 	int maxlen; //最大长度
-	int len;    //当前有效长度
+	int length;    //当前有效长度
 }ArrayList;
 
 
 static void list_isfull(ArrayList *arr)
 {
-	if (arr->len >= arr->maxlen)
+	if (arr->length >= arr->maxlen)
 	{
 		arr->arrBase = realloc(arr->arrBase, sizeof(int*)* (arr->maxlen * 2));
 		arr->maxlen = arr->maxlen * 2;
@@ -44,7 +44,7 @@ static ArrayList* list_create(int maxlen)
 {
 	ArrayList* arr = malloc(sizeof(ArrayList));
 	arr->arrBase = (int **)malloc(sizeof(int*)*maxlen);
-	arr->len = 0;
+	arr->length = 0;
 	arr->maxlen = maxlen;
 	return arr;
 }
@@ -53,8 +53,8 @@ static ArrayList* list_create(int maxlen)
 static void list_add(ArrayList *arr, void* value)
 {
 	list_isfull(arr);
-	arr->arrBase[arr->len] = value;
-	arr->len++;
+	arr->arrBase[arr->length] = value;
+	arr->length++;
 }
 
 
@@ -62,22 +62,22 @@ static void list_add(ArrayList *arr, void* value)
 static void list_insert(ArrayList *arr, int pos, void* value)
 {
 	int i;
-	if (pos<0 || pos > arr->len)
+	if (pos<0 || pos > arr->length)
 	{
 		printf("插入位置不正确或者数据已满，无法插入");
 		return;
 	}
 	list_isfull(arr);
-	for (i = arr->len; i >= pos + 1; i--)
+	for (i = arr->length; i >= pos + 1; i--)
 	{
 		arr->arrBase[i] = arr->arrBase[i - 1];
 	}
 	arr->arrBase[pos] = value;
-	arr->len++;
+	arr->length++;
 }
 
 static void list_free(ArrayList *arr) {
-	for (size_t i = 0; i < arr->len; i++)
+	for (size_t i = 0; i < arr->length; i++)
 	{
 		free(arr->arrBase[i]);
 	}
@@ -123,17 +123,17 @@ ArrayList* kSum(int* nums, int numSize, int target, int k, int index) {
 		//递归+遍历,不断进行两数之和的尝试
 		for (int i = index; i < len - k + 1; i++) {
 			ArrayList* temp = kSum(nums, numSize, target - nums[i], k - 1, i + 1);
-			if (temp->len != 0) {
-				for (size_t j = 0; j < temp->len; j++)
+			if (temp->length != 0) {
+				for (size_t j = 0; j < temp->length; j++)
 				{
 					int* t = (int*)(temp->arrBase[j]);
 					t[numSize - k] = nums[i];
 				}
-				for (size_t j = 0; j < temp->len; j++)
+				for (size_t j = 0; j < temp->length; j++)
 				{
 					list_add(res, temp->arrBase[j]);
 				}
-				temp->len = 0;
+				temp->length = 0;
 			}
 			list_free(temp);
 			while (i < len - 1 && nums[i] == nums[i + 1]) {
@@ -162,7 +162,7 @@ int** fourSum1(int* nums, int numsSize, int target, int* returnSize) {
 	len = numsSize;
 	qsort(nums, numsSize, sizeof(int), funcmp);
 	ArrayList* res = kSum(nums, 4, target, 4, 0);
-	*returnSize = res->len;
+	*returnSize = res->length;
 	int** int_res = res->arrBase;
 	free(res);
 	return int_res;
