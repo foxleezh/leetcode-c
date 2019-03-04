@@ -16,13 +16,6 @@
  */
 
 
-struct ListNode {
-	int val;
-	struct ListNode *next;
-};
-
-
-
 /**
  *  解题思路：这题我们可以用双指针法，先让first指针走n步，然后second指针开始走，当first走到尾部时，second指向的就是倒数第n个
  *
@@ -56,22 +49,7 @@ struct ListNode* removeNthFromEnd(struct ListNode* head, int n) {
 
 void solution19() {
 	int nums[N] = { 1, 2, 3, 4, 5 };
-	struct ListNode* node = malloc(sizeof(struct ListNode));
-	struct ListNode* origin = node;
-	node->val = nums[0];
-	for (int i = 1; i < N; i++) {
-		node->next = malloc(sizeof(struct ListNode));
-		node = node->next;
-		node->val = nums[i];
-	}
-	node->next = NULL;
-	struct ListNode* res = removeNthFromEnd(origin, INDEX);
-	while (res->next != NULL) {
-		ALog("%d", res->val);
-		struct ListNode* temp = res->next;
-		free(res);
-		res = temp;
-	}
-	ALog("%d", res->val);
-	free(res);
+	char* toString = nodeToString(removeNthFromEnd(nodeCreate(nums, N), INDEX));
+	ALog("%s", toString);
+	free(toString);
 }

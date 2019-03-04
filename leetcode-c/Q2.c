@@ -18,11 +18,6 @@
  */
 
 
-typedef struct ListNode_Class {
-	int val;
-	struct ListNode_Class *next;
-}ListNode;
-
 /*
  * 解题思路：这题的实质就是加法，加法的话就是涉及到进位的问题，所以我们就用一个变量来保存下进位
  * 
@@ -30,10 +25,10 @@ typedef struct ListNode_Class {
  * 
  * 当有对不上位的时候，比如一个三位数+四位数这种，三位数的千位则不加
  */
-ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+struct ListNode* addTwoNumbers(struct ListNode* l1, struct ListNode* l2) {
 	int carry = 0;
-	ListNode* result = (ListNode*)malloc(sizeof(ListNode));
-	ListNode* origin = result;
+	struct ListNode result;
+	struct ListNode* cur = &result;
 	while (l1 != NULL || l2 != NULL || carry != NULL) {
 		if (l1 != NULL) {
 			carry = carry + l1->val;
@@ -43,50 +38,24 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 			carry = carry + l2->val;
 			l2 = l2->next;
 		}
-		ListNode* node = (ListNode*)malloc(sizeof(ListNode));
+		struct ListNode* node = (struct ListNode*)malloc(sizeof(struct ListNode));
 		node->val = carry % 10;
 		node->next = NULL;
-		result->next = node;
-		result = node;
+		cur->next = node;
+		cur = node;
 		carry /= 10;
 	}
-	ListNode* temp = origin->next;
-	free(origin);
-	return temp;
-}
-
-void ListNode_free(ListNode* node) {
-	ListNode* entry = node;
-	while (entry != NULL) {
-		ListNode* temp = entry;
-		entry = entry->next;
-		free(temp);
-	}
-}
-
-ListNode* getNode(int a, int b, int c) {
-	ListNode* node_a = malloc(sizeof(ListNode));
-	node_a->val = a;
-	ListNode* node_b = malloc(sizeof(ListNode));
-	node_b->val = b;
-	ListNode* node_c = malloc(sizeof(ListNode));
-	node_c->val = c;
-	node_a->next = node_b;
-	node_b->next = node_c;
-	node_c->next = NULL;
-	return node_a;
+	return result.next;
 }
 
 void solution2() {
-	ListNode* node_1 = getNode(2, 4, 3);
-	ListNode* node_2 = getNode(5, 6, 4);
-	ListNode* re = addTwoNumbers(node_1, node_2);
-	ListNode_free(node_1);
-	ListNode_free(node_2);
-	ListNode* temp = re;
-	while (re != NULL) {
-		ALog("%x", re->val);
-		re = re->next;
-	}
-	ListNode_free(temp);
+	int nums1[] = {2,4,3};
+	int nums2[] = { 5, 6, 4 };
+	struct ListNode* node_1 = nodeCreate(nums1,3);
+	struct ListNode* node_2 = nodeCreate(nums2,3);
+	char* toString = nodeToString(addTwoNumbers(node_1, node_2));
+	ALog("%s", toString);
+	free(toString);
+	nodeFree(node_1);
+	nodeFree(node_2);
 }

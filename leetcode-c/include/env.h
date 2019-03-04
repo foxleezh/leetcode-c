@@ -8,6 +8,7 @@
 #include "stdint.h"
 #include "stdbool.h"
 #include "stdarg.h"
+#include "node.h"
 
 
 #ifdef _WIN32

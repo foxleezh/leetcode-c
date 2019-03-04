@@ -24,7 +24,7 @@
     <ClInclude Include="include\str.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Q23.h">
+    <ClInclude Include="node.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -108,6 +108,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Q23.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Q24.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="node.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

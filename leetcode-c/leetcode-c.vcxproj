@@ -119,10 +119,11 @@
     <ClInclude Include="include\env.h" />
     <ClInclude Include="include\list.h" />
     <ClInclude Include="include\str.h" />
-    <ClInclude Include="Q23.h" />
+    <ClInclude Include="node.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list.c" />
+    <ClCompile Include="node.c" />
     <ClCompile Include="Q1.c" />
     <ClCompile Include="Q10.c" />
     <ClCompile Include="Q11.c" />
@@ -139,6 +140,7 @@
     <ClCompile Include="Q21.c" />
     <ClCompile Include="Q22.c" />
     <ClCompile Include="Q23.c" />
+    <ClCompile Include="Q24.c" />
     <ClCompile Include="Q3.c" />
     <ClCompile Include="Q4.c" />
     <ClCompile Include="Q5.c" />

@@ -16,11 +16,6 @@
  * @date 2019-02-28.
  */
 
- 
-struct ListNode {
-	int val;
-	struct ListNode *next;
-};
 /**
  * 归并排序，两两合并
  */
@@ -67,40 +62,19 @@ static struct ListNode* mergeKLists(struct ListNode** lists, int listsSize) {
 	return lists[0];
 }
 
-
-
-struct ListNode* createList(int* nums,size_t numsSize) {
-	struct ListNode node;
-	struct ListNode* cur = &node;
-	for (int i = 0; i < numsSize; i++) {
-		struct ListNode* next = malloc(sizeof(struct ListNode));
-		next->val = nums[i];
-		next->next = NULL;
-		cur->next = next;
-		cur = cur->next;
-	}
-	return node.next;
-}
-
 void solution23() {
 	int nums1[] = {1,3};
 	int nums2[] = { 2, 4, 7 };
 	int nums3[] = { 3, 5, 9 };
-	struct ListNode* node1 = createList(nums1,2);
-	struct ListNode* node2 = createList(nums2,3);
-	struct ListNode* node3 = createList(nums3,3);
+	struct ListNode* node1 = nodeCreate(nums1,2);
+	struct ListNode* node2 = nodeCreate(nums2,3);
+	struct ListNode* node3 = nodeCreate(nums3,3);
 	struct ListNode** nodes = malloc(sizeof(struct ListNode*)*3);
 	nodes[0] = node1;
 	nodes[1] = node2;
 	nodes[2] = node3;
-	struct ListNode* node = mergeKLists(nodes,3);
-	while (node->next != NULL) {
-		ALog("%d",node->val);
-		struct ListNode* temp = node->next;
-		free(node);
-		node = temp;
-	}
-	ALog("%d", node->val);
-	free(node);
+	char* toString = nodeToString(mergeKLists(nodes, 3));
+	ALog("%s", toString);
+	free(toString);
 	free(nodes);
 }
