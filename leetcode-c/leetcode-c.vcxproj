@@ -142,6 +142,7 @@
     <ClCompile Include="Q23.c" />
     <ClCompile Include="Q24.c" />
     <ClCompile Include="Q25.c" />
+    <ClCompile Include="Q26.c" />
     <ClCompile Include="Q3.c" />
     <ClCompile Include="Q4.c" />
     <ClCompile Include="Q5.c" />
