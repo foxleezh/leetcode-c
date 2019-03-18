@@ -30,7 +30,7 @@
   * 每当j与k对应的字符串相同了，就将k个数加1，如果不同了，那么k的值还原
   *
   */
-int* getNext(char* ps) {
+static int* getNext(char* ps) {
 	int p_len = strlen(ps);
 	int* next = malloc(sizeof(int)*p_len);
 	next[0] = -1;
@@ -96,10 +96,10 @@ int* getNext(char* ps) {
   *
   * 详细对于KMP算法的介绍请参考https://www.cnblogs.com/yjiyjige/p/3263858.html
   */
-int strStr(char* haystack, char* needle) {
+static int strStr(char* haystack, char* needle) {
 	int t_len = strlen(haystack);
 	int p_len = strlen(needle);
-	if (t_len ==0 || p_len==0) {
+	if ( p_len==0) {
 		return 0;
 	}
 	int i = 0; // 主串的位置
@@ -126,5 +126,5 @@ int strStr(char* haystack, char* needle) {
 
 
 void solution28() {
-	ALog("%d", strStr("", ""));
+	ALog("%d", strStr("acdbaacaaad", "aacaaad"));
 }
