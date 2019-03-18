@@ -120,6 +120,7 @@
     <ClInclude Include="include\list.h" />
     <ClInclude Include="include\str.h" />
     <ClInclude Include="node.h" />
+    <ClInclude Include="Q28.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list.c" />
@@ -144,6 +145,7 @@
     <ClCompile Include="Q25.c" />
     <ClCompile Include="Q26.c" />
     <ClCompile Include="Q27.c" />
+    <ClCompile Include="Q28.c" />
     <ClCompile Include="Q3.c" />
     <ClCompile Include="Q4.c" />
     <ClCompile Include="Q5.c" />
