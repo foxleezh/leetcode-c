@@ -27,12 +27,6 @@
     <ClInclude Include="node.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Q28.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Q29.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="list.c">
@@ -135,6 +129,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Q29.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Q30.c">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

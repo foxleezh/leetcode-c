@@ -7,8 +7,8 @@
 extern void solution29(void);
 
 int main() {
-	//_CrtSetBreakAlloc(76);
-	solution29();
+	//_CrtSetBreakAlloc(87);
+	solution30();
 	_CrtDumpMemoryLeaks();
 	int i = 0;
 	scanf("%d",&i);
